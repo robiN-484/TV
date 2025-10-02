@@ -81,9 +81,11 @@ const RoomCreation = ({ onRoomCreated }) => {
     }
   };
   
-  // Get current date and time for min values
+  // Get current date and time for min values  
   const now = new Date();
-  const currentDate = now.toISOString().split('T')[0];
+  // Add one day to current date to avoid timezone issues
+  const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  const currentDate = tomorrow.toISOString().split('T')[0];
   const currentTime = now.toTimeString().slice(0, 5);
   
   return (
